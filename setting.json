@@ -1,5 +1,15 @@
 {
     "TOKEN": "OTU4MzcyNTMwMzUwMDg0MTA2.YkMX-A.BUcZtY11TQdXUeZa7eMlyg9rV7s",
     "channal": "907248185943146506",
-    "pic": ["C:\\Users\\92041\\Documents\\GitHub\\discord_py\\pic\\hi.jpg", "C:\\Users\\92041\\Documents\\GitHub\\discord_py\\pic\\yo.jpg"]
+
+    "url_pic": ["https://thumbor.4gamers.com.tw/LxGUQiAPyQXvdtlk5Sb-AhXlmOs=/adaptive-fit-in/1200x1200/filters:no_upscale():extract_cover():format(jpeg):quality(85)/https%3A%2F%2Fugc-media.4gamers.com.tw%2Fpuku-prod-zh%2Fanonymous-story%2F82e0e5ef-efe4-4fe8-8faf-c936c7af8631.jpg", 
+                "https://images3.alphacoders.com/120/thumb-350-1209881.png",
+                "https://static.wikia.nocookie.net/youtube/images/e/e3/Koyori_ch._%E5%8D%9A%E8%A1%A3%E3%81%93%E3%82%88%E3%82%8A_-_holoX_-_%28December_2021%29.jpg/revision/latest?cb=20211228003614",
+                "https://truth.bahamut.com.tw/s01/202111/333c994012f5d03b3d22bd8ded790438.JPG",
+                "https://static.zerochan.net/Hakui.Koyori.full.3518543.jpg",
+                "https://c.tenor.com/OBb7ObA4JmMAAAAd/hakui-koyori.gif",
+                "https://files.yande.re/image/d4f4fa5ec020245a1e32e1da7c439065/yande.re%20891543%20animal_ears%20hakui_koyori%20hololive%20moemoepiano%20nekomimi%20seifuku.jpg",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_3OwLxB0jtZpeyUM2N0Tl3AznSBYK5HREaw&usqp=CAU",
+                "https://thumbor.4gamers.com.tw/1kLnySYOBhuY6KsyluYBHZk6gmM=/adaptive-fit-in/1200x1200/filters:no_upscale():extract_cover():format(jpeg):quality(85)/https%3A%2F%2Fugc-media.4gamers.com.tw%2Fpuku-prod-zh%2Fanonymous-story%2Febf75038-ac76-4618-bd6d-7fa2e327c003.jpg"
+                ]
 }
