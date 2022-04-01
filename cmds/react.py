@@ -14,5 +14,6 @@ class React(Cog_Extension):
         random_pic = random.choice(jdata['url_pic'])
         await ctx.send(random_pic)
 
+
 def setup(bot):
     bot.add_cog(React(bot))
