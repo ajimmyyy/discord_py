@@ -37,15 +37,6 @@ class Main(Cog_Extension):
     async def clean(self, ctx, num : int):
         await ctx.channel.purge(limit = num + 1)
 
-    @commands.command()
-    async def rand_squad(self, ctx):
-
-        online = []
-        for member in ctx.guild.members:
-             if str(member.status) == 'online':
-                 online.append(member)
-        print(ctx.guild.members)
-
 
 
 def setup(bot):
