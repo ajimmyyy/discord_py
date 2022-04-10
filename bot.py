@@ -1,4 +1,4 @@
-from msilib.schema import File
+#from msilib.schema import File
 from ntpath import join
 import random
 import discord

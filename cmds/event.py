@@ -28,7 +28,8 @@ class Event(Cog_Extension):
         if msg.content == '大眼睛':
             random_msg = random.choice(jdata['big_eyes'])
             await msg.channel.send(random_msg)
+        if msg.content == 'koyori':
+            await msg.channel.send('hi')
             
-
 def setup(bot):
     bot.add_cog(Event(bot))
