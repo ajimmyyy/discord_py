@@ -20,11 +20,6 @@ class Event(Cog_Extension):
     
     @commands.Cog.listener()
     async def on_message(self, msg):
-        if msg.content == 'koyori':
-            await msg.channel.send('hi')
-    
-    @commands.Cog.listener()
-    async def on_message(self, msg):
         if msg.content == '大眼睛':
             random_msg = random.choice(jdata['big_eyes'])
             await msg.channel.send(random_msg)
