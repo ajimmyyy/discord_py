@@ -9,7 +9,10 @@ import os
 with open('setting.json', mode = 'r', encoding='utf8') as jfile:
     jdata = json.load(jfile)
 
-bot = commands.Bot(command_prefix='/=')
+intents = discord.Intents.default()
+intents.presences = True
+intents.members = True
+bot = commands.Bot(command_prefix="/=", intents=intents)
 
 @bot.event
 async def on_ready():

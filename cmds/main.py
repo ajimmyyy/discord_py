@@ -6,6 +6,7 @@ import datetime
 from discord.ext import commands
 from core.classes import Cog_Extension
 
+
 class Main(Cog_Extension):
 
     @commands.command()
@@ -38,11 +39,12 @@ class Main(Cog_Extension):
 
     @commands.command()
     async def rand_squad(self, ctx):
+
         online = []
         for member in ctx.guild.members:
              if str(member.status) == 'online':
                  online.append(member)
-        print(online)
+        print(ctx.guild.members)
 
 
 
