@@ -11,7 +11,7 @@
         "https://files.yande.re/image/d4f4fa5ec020245a1e32e1da7c439065/yande.re%20891543%20animal_ears%20hakui_koyori%20hololive%20moemoepiano%20nekomimi%20seifuku.jpg",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_3OwLxB0jtZpeyUM2N0Tl3AznSBYK5HREaw&usqp=CAU",
         "https://thumbor.4gamers.com.tw/1kLnySYOBhuY6KsyluYBHZk6gmM=/adaptive-fit-in/1200x1200/filters:no_upscale():extract_cover():format(jpeg):quality(85)/https%3A%2F%2Fugc-media.4gamers.com.tw%2Fpuku-prod-zh%2Fanonymous-story%2Febf75038-ac76-4618-bd6d-7fa2e327c003.jpg"
-        ],
+    ],
     "big_eyes": [
         "\u51f9\u5192\u982d\u5927\u773c\u775b",
         "\u5728\u5834\u7684\u5404\u4f4d\u90fd\u662f\u5927\u773c\u775b",
@@ -20,6 +20,21 @@
         "YMD"
     ],
     "time": "1650",
-    "cause": ["被公車撞死","遭到物理超渡","走路走到異世界","被異世界大法師招喚"],
-    "role": [["魔王","勇者"], ["勇者","魔王"]]
+    "cause": [
+        "\u88ab\u516c\u8eca\u649e\u6b7b",
+        "\u906d\u5230\u7269\u7406\u8d85\u6e21",
+        "\u8d70\u8def\u8d70\u5230\u7570\u4e16\u754c",
+        "\u88ab\u7570\u4e16\u754c\u5927\u6cd5\u5e2b\u62db\u559a"
+    ],
+    "role": [
+        [
+            "\u9b54\u738b",
+            "\u52c7\u8005"
+        ],
+        [
+            "\u52c7\u8005",
+            "\u9b54\u738b"
+        ]
+    ],
+    "pic_name_file": ["0"]
 }
