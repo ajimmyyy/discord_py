@@ -5,6 +5,7 @@ from core.classes import Cog_Extension
 import random
 import uuid
 import requests
+import os
 import shutil
 import json
 
@@ -22,22 +23,16 @@ class Emoticon(Cog_Extension):
         except IndexError:
             await ctx.send("No attachments")
         else:
-            with open('setting.json', mode = 'r', encoding='utf8') as jfile:
-                jdata = json.load(jfile)
-            time = int(jdata['pic_name_file'][0])
             re_name = False 
-            for i in range(time):
-                if pic_name == jdata['pic_name_file'][i]:
+            dirs = os.listdir("C:\\Users\\user\\Documents\\GitHub\\discord_py\\picture")
+            for name in dirs:
+                if pic_name == name[:-4]:
                     re_name = True
             if re_name:
                 await ctx.send("Already has the same name picture")
             else:
-                jdata['pic_name_file'][0] = str(time + 1)
-                jdata['pic_name_file'][time + 1] = pic_name
-                with open('setting.json', mode = 'w', encoding='utf8') as jfile:
-                    json.dump(jdata, jfile, indent=4)
                 
-                await ctx.message.attachments[0].save(f'C:\\Users\\acer\\Documents\\GitHub\\discord_py\\picture\\{pic_name}.jpg')
+                await ctx.message.attachments[0].save(f'C:\\Users\\user\\Documents\\GitHub\\discord_py\\picture\\{pic_name}.jpg')
                 await ctx.send("Upload success")
             
 def setup(bot):
