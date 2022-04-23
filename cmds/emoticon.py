@@ -6,6 +6,7 @@ import random
 import uuid
 import requests
 import os
+import pathlib
 import shutil
 import json
 
@@ -24,15 +25,15 @@ class Emoticon(Cog_Extension):
             await ctx.send("No attachments")
         else:
             re_name = False 
-            dirs = os.listdir("C:\\Users\\user\\Documents\\GitHub\\discord_py\\picture")
+            position = pathlib.Path().parent.absolute()
+            dirs = os.listdir(f"{position}\\picture")
             for name in dirs:
                 if pic_name == name[:-4]:
                     re_name = True
             if re_name:
                 await ctx.send("Already has the same name picture")
             else:
-                
-                await ctx.message.attachments[0].save(f'C:\\Users\\user\\Documents\\GitHub\\discord_py\\picture\\{pic_name}.jpg')
+                await ctx.message.attachments[0].save(f'{p}\\picture\\{pic_name}.jpg')
                 await ctx.send("Upload success")
             
 def setup(bot):
