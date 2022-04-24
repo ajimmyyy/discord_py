@@ -22,7 +22,7 @@ class Main(Cog_Extension):
         embed.add_field(name="event", value="koyori :\nsay hello to you", inline=False)
         embed.add_field(name="task", value="/=set_channel (channel ID) :\nset where massages will send\n/=set_time (hour/minute) :\nalarm clock's time\n", inline=False)
         embed.add_field(name="team", value="/=rand_squad :\nranden grouping\n/=rand_squad_wait_time :\nset mini time need to wait between two rand_squad\n", inline=False)
-        embed.add_field(name="emoticon", value="/=pic :\n    upload(picture name you want):\n   upload picture\n", inline=False)
+        embed.add_field(name="emoticon", value="/=pic :\n/= pic upload(picture name you want):\nupload picture\n/= pic use(picture name you want):\nsend picture\n/= pic list:\nlist all the picture", inline=False)
         embed.add_field(name="for programer", value="/=load (name of the project)\n/=unload (name of the project)\n/=reload (name of the project)", inline=False)
         await ctx.send(embed=embed)
 

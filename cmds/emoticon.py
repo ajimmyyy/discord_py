@@ -30,6 +30,7 @@ class Emoticon(Cog_Extension):
             re_name = False 
             position = pathlib.Path().parent.absolute()
             dirs = os.listdir(f"{position}\\picture")
+
             for name in dirs:
                 if pic_name == name[:-4]:
                     re_name = True
@@ -60,6 +61,15 @@ class Emoticon(Cog_Extension):
                 await ctx.send(f'Can not find the picture name {pic_name}')
                 time.sleep(3)
                 await ctx.channel.purge(limit = 2)
+    @pic.command()
+    async def list(self, ctx):
+        position = pathlib.Path().parent.absolute()
+        dirs = os.listdir(f'{position}\\picture')
+        for name in dirs:
+            pic = discord.File(f'{position}\\picture\\{name}')
+            await ctx.channel.purge(limit = 1)
+            await ctx.send(f'{name[:-4]}:')
+            await ctx.send(file = pic)
 
 def setup(bot):
     bot.add_cog(Emoticon(bot))
