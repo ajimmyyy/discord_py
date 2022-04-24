@@ -5,10 +5,10 @@ from core.classes import Cog_Extension
 import random
 import uuid
 import requests
-from PIL import Image
-import os
+from PIL import Image #install
+import os 
 import pathlib
-import cv2
+import cv2 #install
 import time
 import shutil
 import json
