@@ -5,8 +5,11 @@ from core.classes import Cog_Extension
 import random
 import uuid
 import requests
+from PIL import Image
 import os
 import pathlib
+import cv2
+import time
 import shutil
 import json
 
@@ -33,8 +36,30 @@ class Emoticon(Cog_Extension):
             if re_name:
                 await ctx.send("Already has the same name picture")
             else:
-                await ctx.message.attachments[0].save(f'{p}\\picture\\{pic_name}.jpg')
-                await ctx.send("Upload success")
-            
+                if  ctx.message.attachments[0].size > 250000:
+                    await ctx.send("Please upload picture under 250kb")
+                else:
+                    await ctx.message.attachments[0].save(f'{position}\\picture\\{pic_name}.jpg')
+                    
+                    img = cv2.imread(f'{position}\\picture\\{pic_name}.jpg')
+                    image = cv2.resize(img, dsize=(48,48), interpolation=cv2.INTER_CUBIC)
+                    cv2.imwrite(f'{position}\\picture\\{pic_name}.jpg', image)
+                    
+                    await ctx.send("Upload success")
+    
+    @pic.command()
+    async def use(self, ctx,pic_name):
+        position = pathlib.Path().parent.absolute()
+        dirs = os.listdir(f'{position}\\picture')
+        for name in dirs:
+            if pic_name == name[:-4]:
+                pic = discord.File(f'{position}\\picture\\{name}')
+                await ctx.channel.purge(limit = 1)
+                await ctx.send(file = pic)
+            else:
+                await ctx.send(f'Can not find the picture name {pic_name}')
+                time.sleep(3)
+                await ctx.channel.purge(limit = 2)
+
 def setup(bot):
     bot.add_cog(Emoticon(bot))
