@@ -21,7 +21,10 @@ class Emoticon(Cog_Extension):
     async def pic(self, ctx):
         pass 
     @pic.command()
-    async def upload(self, ctx,pic_name):
+    async def upload(self, ctx, pic_name):
+        if int(pic_name) == 0:
+            pic_name = ctx.message.attachments[0].id
+            await ctx.send(f'named:{pic_name}')
         try:
             url = ctx.message.attachments[0].url
         except IndexError:
@@ -37,37 +40,43 @@ class Emoticon(Cog_Extension):
             if re_name:
                 await ctx.send("Already has the same name picture")
             else:
-                if  ctx.message.attachments[0].size > 250000:
-                    await ctx.send("Please upload picture under 250kb")
-                else:
-                    await ctx.message.attachments[0].save(f'{position}\\picture\\{pic_name}.jpg')
-                    
-                    img = cv2.imread(f'{position}\\picture\\{pic_name}.jpg')
-                    image = cv2.resize(img, dsize=(48,48), interpolation=cv2.INTER_CUBIC)
-                    cv2.imwrite(f'{position}\\picture\\{pic_name}.jpg', image)
-                    
-                    await ctx.send("Upload success")
+                # if  ctx.message.attachments[0].size > 250000:
+                #     await ctx.send("Please upload picture under 250kb")
+                # else:
+                await ctx.message.attachments[0].save(f'{position}\\picture\\{pic_name}.jpg')
+
+                wid = (int(ctx.message.attachments[0].width) / int(ctx.message.attachments[0].height)) * 64
+                img = cv2.imread(f'{position}\\picture\\{pic_name}.jpg')
+                image = cv2.resize(img, dsize=(int(wid),64), interpolation=cv2.INTER_CUBIC)
+                cv2.imwrite(f'{position}\\picture\\{pic_name}.jpg', image)
     
+                await ctx.send("Upload success")
+
     @pic.command()
     async def use(self, ctx,pic_name):
         position = pathlib.Path().parent.absolute()
         dirs = os.listdir(f'{position}\\picture')
+        
+        get = False
         for name in dirs:
             if pic_name == name[:-4]:
                 pic = discord.File(f'{position}\\picture\\{name}')
                 await ctx.channel.purge(limit = 1)
                 await ctx.send(file = pic)
-            else:
-                await ctx.send(f'Can not find the picture name {pic_name}')
-                time.sleep(3)
-                await ctx.channel.purge(limit = 2)
+                get = True
+                break
+        if(not get):
+            await ctx.send(f'Can not find the picture name {pic_name}')
+            time.sleep(3)
+            await ctx.channel.purge(limit = 2) 
+
     @pic.command()
     async def list(self, ctx):
         position = pathlib.Path().parent.absolute()
         dirs = os.listdir(f'{position}\\picture')
+        await ctx.channel.purge(limit = 1)
         for name in dirs:
             pic = discord.File(f'{position}\\picture\\{name}')
-            await ctx.channel.purge(limit = 1)
             await ctx.send(f'{name[:-4]}:')
             await ctx.send(file = pic)
 
