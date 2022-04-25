@@ -16,15 +16,12 @@ import json
 with open('setting.json', mode = 'r', encoding='utf8') as jfile:
     jdata = json.load(jfile)
 
-class Emoticon(Cog_Extension):
+class emoji(Cog_Extension):
     @commands.group()
     async def pic(self, ctx):
         pass 
     @pic.command()
     async def upload(self, ctx, pic_name):
-        if int(pic_name) == 0:
-            pic_name = ctx.message.attachments[0].id
-            await ctx.send(f'named:{pic_name}')
         try:
             url = ctx.message.attachments[0].url
         except IndexError:
@@ -77,8 +74,21 @@ class Emoticon(Cog_Extension):
         await ctx.channel.purge(limit = 1)
         for name in dirs:
             pic = discord.File(f'{position}\\picture\\{name}')
-            await ctx.send(f'{name[:-4]}:')
-            await ctx.send(file = pic)
+            await ctx.send(f'{name[:-4]}:',file = pic)
+    
+    @pic.command()
+    async def delete(self, ctx, pic_name):
+        position = pathlib.Path().parent.absolute()
+        dirs = os.listdir(f'{position}\\picture')
+        for name in dirs:
+            if pic_name == name[:-4]:
+                try:
+                    os.remove(f'{position}\\picture\\{pic_name}.jpg')
+                except OSError as e:
+                    await ctx.send(e)
+                else:
+                    await ctx.send("File is deleted successfully")
+
 
 def setup(bot):
-    bot.add_cog(Emoticon(bot))
+    bot.add_cog(emoji(bot))
