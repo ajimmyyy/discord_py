@@ -5,10 +5,12 @@ from core.classes import Cog_Extension
 import random
 import uuid
 import requests
-from PIL import Image #install
 import os 
 import pathlib
-import cv2 #install
+# import cv2 #install
+# from PIL import Image #install
+from skimage.transform import resize #install
+import matplotlib.pyplot as plt #install
 import time
 import shutil
 import json
@@ -43,9 +45,13 @@ class emoji(Cog_Extension):
                 await ctx.message.attachments[0].save(f'{position}\\picture\\{pic_name}.jpg')
 
                 wid = (int(ctx.message.attachments[0].width) / int(ctx.message.attachments[0].height)) * 64
-                img = cv2.imread(f'{position}\\picture\\{pic_name}.jpg')
-                image = cv2.resize(img, dsize=(int(wid),64), interpolation=cv2.INTER_CUBIC)
-                cv2.imwrite(f'{position}\\picture\\{pic_name}.jpg', image)
+                
+                im = plt.imread(f'{position}\\picture\\{pic_name}.jpg')
+                res = resize(im, (64,int(wid)))
+                plt.imsave(f'{position}\\picture\\{pic_name}.jpg',res)
+                # img = cv2.imread(f'{position}\\picture\\{pic_name}.jpg')
+                # image = cv2.resize(img, dsize=(int(wid),64), interpolation=cv2.INTER_CUBIC)
+                # cv2.imwrite(f'{position}\\picture\\{pic_name}.jpg', image)
     
                 await ctx.send("Upload success")
 
